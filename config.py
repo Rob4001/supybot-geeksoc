@@ -19,8 +19,10 @@ def configure(advanced):
 
 GeekSoc = conf.registerPlugin('GeekSoc')
 # This is where your configuration variables (if any) should go.  For example:
-# conf.registerGlobalValue(GeekSoc, 'someConfigVariableName',
-#     registry.Boolean(False, """Help for someConfigVariableName."""))
+conf.registerGlobalValue(GeekSoc, 'url',registry.String("api.gas.geeksoc.org", """This is the URL of the API"""))
+conf.registerGlobalValue(GeekSoc, 'protocol',registry.String("http", """This is the protocol of the API"""))
+conf.registerGlobalValue(GeekSoc, 'user',registry.String("admin", """This is the User of the API"""))
+conf.registerGlobalValue(GeekSoc, 'password',registry.String("geeksoc", """This is the Password of the User"""))
 
 
 # vim:set shiftwidth=4 tabstop=4 expandtab textwidth=79:
