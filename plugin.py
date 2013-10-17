@@ -35,9 +35,9 @@ class GeekSoc(callbacks.Plugin):
 		r=requests.get(api_url+"/users/"+user )
 		try:
 			r.raise_for_status()
-			irc.reply(r.status_code)
 		except requests.HTTPError as e:
 			irc.reply(str(e))
+			return
 		entry = r.json()  
 		if 'error' in entry:
 			irc.reply(("Error: "+entry['error']).encode('utf-8'))
