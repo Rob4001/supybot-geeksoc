@@ -31,6 +31,10 @@ class GeekSoc(callbacks.Plugin):
 		user = name
 		day = int(epoch.time()/(60*60*24))
 		api_url = self.registryValue('protocol')+"://"+self.registryValue('user')+":"+self.registryValue('password')+"@"+self.registryValue('url')
+		try:
+            self.raise_for_status()
+        except RequestException as e:
+            irc.reply(e.str())
 		r=requests.get(api_url+"/users/"+user )
 		entry = r.json()  
 		if 'error' in entry:
